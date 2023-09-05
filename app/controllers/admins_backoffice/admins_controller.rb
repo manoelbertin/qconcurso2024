@@ -1,15 +1,21 @@
 class AdminsBackoffice::AdminsController < AdminsBackofficeController
   # aqui está herdando tanto a autenticação quanto o layout específico.
-  before_action :set_admin, only: [:edit]
+  before_action :set_admin, only: [:edit, :update]
 
   def index
-    @admins = Admin.all
+    @admins = Admin.all.order(:id)
   end
 
   def edit 
   end
 
   def update
+    params_admin
+    if @admin.update(params_admin)
+      redirect_to admins_backoffice_admins_path, notice: "Successfully Updated"
+    else 
+      render :edit
+    end
   end
 
   private
