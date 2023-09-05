@@ -10,6 +10,10 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
 
   def update
+    if params[:password].blank? && if params[:password_confirmation].blank?
+      params[:admin].extract!(:password, :password_confirmation)
+    end
+    
     params_admin
     if @admin.update(params_admin)
       redirect_to admins_backoffice_admins_path, notice: "Successfully Updated"
