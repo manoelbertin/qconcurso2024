@@ -2,7 +2,6 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   # aqui está herdando tanto a autenticação quanto o layout específico.
   before_action :verify_password, only: [:update]
   before_action :set_admin, only: [:edit, :update]
-  before_action :params_admin, only: [:update]
 
   def index
     @admins = Admin.all.order(:id)
