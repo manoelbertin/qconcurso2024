@@ -1,6 +1,5 @@
 class AdminsBackoffice::AdminsController < AdminsBackofficeController
   # aqui está herdando tanto a autenticação quanto o layout específico.
-  before_action :verify_password, only: [:update]
   before_action :set_admin, only: [:edit, :update]
 
   def index
@@ -11,6 +10,7 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
 
   def update
+    params_admin
     if @admin.update(params_admin)
       redirect_to admins_backoffice_admins_path, notice: "Successfully Updated"
     else 
@@ -19,12 +19,6 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   end
 
   private
-  
-  def verify_password
-    if params[:password].blank? && if params[:password_confirmation].blank?
-      params[:admin].extract!(:password, :password_confirmation)
-    end
-  end
   
   def params_admin
     params.require(:admin).permit(:email, :password, :password_confirmation)
