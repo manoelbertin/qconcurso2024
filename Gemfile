@@ -77,3 +77,5 @@ gem 'faker'
 
 gem 'rails-i18n'
 
+gem 'kaminari'
+
