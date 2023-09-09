@@ -74,3 +74,6 @@ gem 'tty-spinner'
 gem "cancancan"
 
 gem 'faker'
+
+gem 'rails-i18n'
+
