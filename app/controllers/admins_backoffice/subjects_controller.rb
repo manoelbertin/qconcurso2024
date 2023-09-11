@@ -1,12 +1,16 @@
 class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   before_action :set_subject, only: [:edit, :update, :destroy]
 
+  # def index
+  #   respond_to do |format|
+  #     format.html { @subjects = Subject.all.order(:description).page(params[:page]) }
+  #     format.pdf  { @subjects = Subject.all.order(:description) }
+  #     format.json { @subjects = Subject.all.order(:description) }
+  #   end
+  # end
+
   def index
-    respond_to do |format|
-      format.html { @subjects = Subject.all.order(:description).page(params[:page]) }
-      format.pdf  { @subjects = Subject.all.order(:description) }
-      format.json { @subjects = Subject.all.order(:description) }
-    end
+    @subjects = Subject.all.order(:description).page(params[:page])
   end
 
   def new
@@ -35,7 +39,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
 
   def destroy
     if  @subject.destroy
-      redirect_to admins_backoffice_subjects_path, notice: "Assunto/Área excluído com sucesso!"
+      redirect_to subjects_backoffice_subjects_path, notice: "Assunto/Área excluído com sucesso!"
     else
       render :index
     end
