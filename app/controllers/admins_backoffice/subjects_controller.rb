@@ -10,7 +10,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   # end
 
   def index
-    @subjects = Subject.all.order(:id).page(params[:page])
+    @subjects = Subject.all.order(:description).page(params[:page])
   end
 
   def new
