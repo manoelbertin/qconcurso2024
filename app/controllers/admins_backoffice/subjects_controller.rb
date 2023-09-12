@@ -10,7 +10,7 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   # end
 
   def index
-    @subjects = Subject.all.order(:description).page(params[:page])
+    @subjects = Subject.all.order(:id).page(params[:page])
   end
 
   def new
@@ -38,8 +38,8 @@ class AdminsBackoffice::SubjectsController < AdminsBackofficeController
   end
 
   def destroy
-    if  @subject.destroy
-      redirect_to subjects_backoffice_subjects_path, notice: "Assunto/Área excluído com sucesso!"
+    if @subject.destroy
+      redirect_to admins_backoffice_subjects_path, notice: "Assunto/Área excluído com sucesso!"
     else
       render :index
     end
