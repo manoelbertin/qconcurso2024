@@ -27,16 +27,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_184123) do
   end
 
   create_table "answers", force: :cascade do |t|
-    t.text "description"
+    t.text "description", null: false
     t.bigint "question_id", null: false
-    t.boolean "correct"
+    t.boolean "correct", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "description"
+    t.text "description", null: false
     t.bigint "subject_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_09_184123) do
   end
 
   create_table "subjects", force: :cascade do |t|
-    t.string "description"
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
