@@ -79,3 +79,6 @@ gem 'rails-i18n'
 
 gem 'kaminari'
 
+gem 'draper'
+
+
