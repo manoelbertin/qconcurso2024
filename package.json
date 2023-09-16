@@ -1,0 +1,8 @@
+{
+  "name": "qconcurso2024",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/manoelbertin/qconcurso2024.git",
+  "author": "manoel <manoeltirj@gmail.com>",
+  "license": "MIT"
+}
