@@ -97,7 +97,7 @@ namespace :dev do
     { question: {
           description: "#{Faker::Lorem.paragraph} #{Faker::Lorem.question}",
           subject: subject,
-          #answers_attributes: []
+          answers_attributes: []
       }
     }
   end
